@@ -1,0 +1,24 @@
+{
+  "name": "LiberMapsPH",
+  "version": "1.0.0",
+  "description": "LiberMapsPH provides map with the location of the libraries in the Philippines.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IamThe-oS/LiberMapsPH.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IamThe-oS/LiberMapsPH/issues"
+  },
+  "homepage": "https://github.com/IamThe-oS/LiberMapsPH#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mongoose": "^6.5.3"
+  }
+}
