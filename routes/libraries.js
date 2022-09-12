@@ -5,6 +5,7 @@ const libraries  = require('../controllers/libraries')
 
 router.route('/')
     .get(libraries.index)
+    .get(libraries.renderNewForm)
 
 router.get('/new', libraries.renderNewForm)
 
