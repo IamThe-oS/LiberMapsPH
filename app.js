@@ -20,6 +20,10 @@ app.get('/', (req, res) => {
     res.render("home");
 })
 
+app.post('/result', (req, res) => {
+    res.send(req.body)
+})
+
 // app.get()
 
 // library/ get, post->create
