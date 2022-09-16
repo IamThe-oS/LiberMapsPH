@@ -1,0 +1,14 @@
+<%- layout('layouts/boilerplate') %> 
+
+<h1><%= library.name %></h1>
+<p><%= library.description %></p>
+<p><%= library.location %></p>
+<p><%= library.type %></p>
+<p><%= library.librarianAndStuff %></p>
+<ul>
+    <% for (let day of library.operatingDays) { %> 
+        <li><%= day %> </li>
+    <% } %> 
+</ul>
+<p><%= library.openTime %></p>
+<p><%= library.closeTime %></p>

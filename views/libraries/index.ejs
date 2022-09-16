@@ -4,4 +4,9 @@
     <div class="mb-5 d-flex justify-content-end">
         <a href="/libraries/new" class="btn btn-lg btn-secondary">Add a New Library</a>
     </div>  
+    <ul>
+        <% for(let library of libraries) { %> 
+        <li><a href="/libraries/<%= library.id %>"><%= library.name %></a></li>
+        <% } %> 
+    </ul>
 </div>

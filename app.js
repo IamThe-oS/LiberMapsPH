@@ -3,8 +3,17 @@ const path = require("path");
 const ejsMate = require("ejs-mate");
 
 const librariesRoutes = require("./routes/libraries");
+const { default: mongoose } = require('mongoose');
 
 const app = express();
+
+mongoose.connect("mongodb://localhost:27017/liberMapsPH")
+
+const db = mongoose.connection;
+db.on("error", console.error.bind(console, "connection error: "))
+db.once("open", () => {
+    console.log("Database Connected")
+})
 
 app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");

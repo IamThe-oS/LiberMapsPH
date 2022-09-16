@@ -2,29 +2,30 @@
 
 <div class="mb-5">
   <h1 class="mb-4 text-center">Create a New Library</h1>
-  <form action="/result" method="POST">
+  <form action="/libraries" method="POST"> 
+
     <div class="row">
       <div class="mb-3 col">
         <label for="name" class="form-label">Name</label>
-        <input type="text" class="form-control" id="name" name="name" placeholder="library name">
+        <input type="text" class="form-control" id="name" name="library[name]" placeholder="library name">
       </div>
     </div>
     <div class="row">
       <div class="mb-3 col">
         <label for="location" class="form-label">Location</label>
-        <input type="text" class="form-control" id="location" name="location" placeholder="library location">
+        <input type="text" class="form-control" id="location" name="library[location]" placeholder="library location">
       </div>
     </div>
     <div class="row">
       <div class="mb-3 col">
         <label for="location" class="form-label">Images</label>
-        <input type="file" class="form-control" id="images" name="images" placeholder="library location">
+        <input type="file" class="form-control" id="images" name="library[images]" placeholder="library location">
       </div>
     </div>
     <div class="row">
       <div class="mb-3 col">
         <label for="description" class="form-label">Description</label>
-        <input type="text" class="form-control" id="description" name="description" placeholder="library description">
+        <input type="text" class="form-control" id="description" name="library[description]" placeholder="library description">
       </div>
     </div>
 
@@ -37,23 +38,23 @@
             <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
           </svg>
         What's the difference?</a>
-        <select class="form-select" aria-label="Default select example" name="type">
-          <option selected>Public</option>
-          <option value="1">School</option>
-          <option value="2">Research</option>
-          <option value="3">Special</option>
+        <select class="form-select" aria-label="Default select example" name="library[type]">
+          <option selected value="Public">Public</option>
+          <option value="School">School</option>
+          <option value="Research">Research</option>
+          <option value="Special">Special</option>
         </select>      
       </div>
       <div class="mb-3 col">
         <label for="exampleFormControlInput1" class="form-label">Number of Librarian & Staff</label>
-        <select class="form-select" aria-label="Default select example" name="librarian">
-          <option selected>Unknown</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-          <option value="4">Four</option>
-          <option value="5">Five</option>
-          <option value=">5">More than five</option>
+        <select class="form-select" aria-label="Default select example" name="library[librarianAndStaff]">
+          <option value="Unknown" selected>Unknown</option>
+          <option value="One">One</option>
+          <option value="Two">Two</option>
+          <option value="Three">Three</option>
+          <option value="Four">Four</option>
+          <option value="Five">Five</option>
+          <option value="More than five">More than five</option>
         </select>      
       </div>
     </div>
@@ -63,31 +64,31 @@
         <label for="operatingDays" class="form-label">Operating Days</label>
         <div class="d-flex justify-content-evenly flex-wrap">
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox0" value="sunday" name="operatingDays">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox0" value="Sunday" name="library[operatingDays]">
             <label class="form-check-label" for="inlineCheckbox0">Sunday</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="monday" name="operatingDays">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Monday" name="library[operatingDays]">
             <label class="form-check-label" for="inlineCheckbox1">Monday</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="tuesday" name="operatingDays">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="Tuesday" name="library[operatingDays]">
             <label class="form-check-label" for="inlineCheckbox2">Tuesday</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="wednesday" name="operatingDays">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="Wednesday" name="library[operatingDays]">
             <label class="form-check-label" for="inlineCheckbox3">Wednesday</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="thursday" name="operatingDays">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="Thursday" name="library[operatingDays]">
             <label class="form-check-label" for="inlineCheckbox4">Thursday</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="friday" name="operatingDays">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="Friday" name="library[operatingDays]">
             <label class="form-check-label" for="inlineCheckbox5">Friday</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox6" value="saturday" name="operatingDays">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox6" value="Saturday" name="library[operatingDays]">
             <label class="form-check-label" for="inlineCheckbox6">Saturday</label>
           </div>      
         </div>
@@ -97,11 +98,11 @@
     <div class="row">
       <div class="mb-3 col">
         <label for="exampleFormControlInput1" class="form-label">Opening Time</label>
-        <input type="time" class="form-control" id="openTime" name="openTime">
+        <input type="time" class="form-control" id="openTime" name="library[openTime]">
       </div>
       <div class="mb-3 col">
         <label for="exampleFormControlInput1" class="form-label">Closing Time</label>
-        <input type="time" class="form-control" id="closeTime" name="closeTime">
+        <input type="time" class="form-control" id="closeTime" name="library[closeTime]">
       </div>
     </div>
 
