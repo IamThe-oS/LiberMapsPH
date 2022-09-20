@@ -1,4 +1,5 @@
 const Library = require('../models/library')
+const { DateTime } = require("luxon");
 
 module.exports.index = async(req, res) => {
     const libraries = await Library.find({});
@@ -20,6 +21,6 @@ module.exports.createLibrary = async(req, res, next) => {
 module.exports.showLibrary = async(req, res) => {
     // res.send(req.params.id)
     const library = await Library.findById(req.params.id)
-    // console.log(library)
-    res.render("libraries/show", { library })
+    const createdAt = DateTime.fromJSDate(library.createdAt).toFormat('MMMM dd, yyyy')
+    res.render("libraries/show", { library, createdAt })
 }
