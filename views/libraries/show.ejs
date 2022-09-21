@@ -3,7 +3,7 @@
 <h1 class="display-5 fw-bold"><%= library.name %></h1>
 <p class="fs-5 fw-semibold text-muted"><%= library.location %></p>
 
-<div>
+<main>
     <div class="card my-3">
         <div class="row g-0">
           <div class="col-md-6">
@@ -39,10 +39,27 @@
           <div class="col-md-6">
             <div class="card-body d-flex flex-column" style="height:100%">
               <h5 class="card-title"><%= library.type %> Library</h5>
-              <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus omnis ab debitis modi, saepe similique, ut obcaecati blanditiis tenetur qui ducimus eum consectetur beatae quae a autem praesentium sit vel.
-              Et dolores sint rem maiores hic illum adipisci magnam minus. Dignissimos excepturi distinctio incidunt adipisci corrupti, et explicabo velit molestiae impedit mollitia, sequi sunt ad quis reprehenderit temporibus praesentium nemo.
-              Corrupti tempore nisi neque dicta quasi harum blanditiis qui? Reprehenderit, in iusto beatae fugiat culpa eius totam illo vel error. Vel doloribus cumque ipsam rem accusantium nam excepturi a numquam.
-              Quisquam blanditiis facere voluptates. At, pariatur! Rerum vero eos commodi doloremque excepturi voluptatum obcaecati fugiat ipsa corporis accusantium voluptatibus quam ipsum, eaque debitis, saepe iste voluptas fugit qui eligendi. Veniam.</p>
+
+              <div class="row pb-3">
+                <div class="col-6">
+                  <p class="fw-bold mb-0 pb-0">Days Open:</p>
+                  <span></span><em class="fs-6 text-muted fw-semibold">
+                    <% for(let day of library.operatingDays){ %> 
+                      <span><%= day.slice(0,3) %>, </span>
+                    <% } %> 
+                  </em></span>
+                </div>
+                <div class="col-6">
+                  <div>
+                    <span class="fw-bolder">Opens:  <span class="fw-bold text-muted"><%= library.openTime %></span></span>
+                  </div>
+                  <div>
+                    <span class="fw-bolder">Closes:  <span class="fw-bold text-muted"><%= library.closeTime %></span></span>
+                  </div>
+                </div>
+              </div>
+
+              <p class="card-text"><%= library.description.slice(0, 800)%>... </p>
                 <div class="ms-auto mt-auto">
                     <p class="card-text"><small class="text-muted">Created on <%= createdAt %></small></p>
                 </div>
@@ -50,14 +67,41 @@
           </div>
         </div>
       </div>
-</div>
-<p></p>
-<p></p>
-<p><%= library.librarianAndStuff %></p>
-<ul>
-    <% for (let day of library.operatingDays) { %> 
-        <li><%= day %> </li>
-    <% } %> 
-</ul>
-<p><%= library.openTime %></p>
-<p><%= library.closeTime %></p>
+
+  <section>
+    <div class="card text-center mb-5">
+      <div class="card-header pb-0">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#map-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Map</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#reviews-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Reviews</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#questionsanswers-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Questions and Answers</button>
+          </li>
+        </ul>
+      </div>
+      <div class="card-body tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="map-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+          <div class="">
+            <h5 class="fs-2 py-4 fw-semibold"><%= library.name %>'s Location in Map</h5>
+            <img src="https://cdn.hswstatic.com/gif/maps.jpg" alt="" srcset="" class="img-fluid border border-secondary border-3">
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="reviews-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+          <h5><%= library.name %>'s Reviews</h5>
+
+        </div>
+
+        <div class="tab-pane fade" id="questionsanswers-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+          <h5>Questions and Answers on <%= library.name %></h5>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+

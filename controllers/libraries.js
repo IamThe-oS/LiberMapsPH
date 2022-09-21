@@ -22,5 +22,5 @@ module.exports.showLibrary = async(req, res) => {
     // res.send(req.params.id)
     const library = await Library.findById(req.params.id)
     const createdAt = DateTime.fromJSDate(library.createdAt).toFormat('MMMM dd, yyyy')
-    res.render("libraries/show", { library, createdAt })
+    res.render("libraries/show", { library, createdAt, })
 }
