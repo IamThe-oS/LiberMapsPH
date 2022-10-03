@@ -38,9 +38,16 @@
           </div>
           <div class="col-md-6">
             <div class="card-body d-flex flex-column" style="height:100%">
-              <h5 class="card-title"><%= library.type %> Library</h5>
+              <div class="d-flex justify-content-between border-bottom">
+              <span>
+                <h5 class="card-title"><%= library.type %> Library</h5>
+              </span>
+              <span>
+                <p>Librarians and Staffs: <%= library.librarianAndStaff %> </p>
+              </span>
+              </div>
 
-              <div class="row pb-3">
+              <div class="row pb-2 my-1 border-bottom">
                 <div class="col-6">
                   <p class="fw-bold mb-0 pb-0">Days Open:</p>
                   <span></span><em class="fs-6 text-muted fw-semibold">
