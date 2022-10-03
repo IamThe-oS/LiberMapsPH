@@ -4,9 +4,28 @@
     <div class="mb-5 d-flex justify-content-end">
         <a href="/libraries/new" class="btn btn-lg btn-secondary">Add a New Library</a>
     </div>  
-    <ul>
+
+    <div class="d-flex justify-content-evenly flex-wrap">
+
         <% for(let library of libraries) { %> 
-        <li><a href="/libraries/<%= library.id %>"><%= library.name %></a></li>
+        <div class="card text-dark border-info bg-info bg-gradient bg-opacity-10 mb-4" style="width: 20rem;">
+            <div class="card-header" style="height:5rem;">
+                <h5 class="card-title fs-4"><%= library.name %></h5>
+            </div>
+            <img src="https://images.unsplash.com/photo-1568667256549-094345857637?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&au
+            to=format&fit=crop&w=415&q=80" class="card-img-top d-block w-100" alt="..." style="max-height: 20rem;">
+            <div class="card-body">
+            <p class="card-text fw-bold mt-auto"><%= library.location %> </p>
+            </div>
+            <div class="card-footer text-muted">
+                <a href="/libraries/<%= library.id %>" class="btn btn-sm btn-secondary">See More</a>
+            </div>
+        </div>
         <% } %> 
-    </ul>
+
+    </div>
+
+
+    
+
 </div>
