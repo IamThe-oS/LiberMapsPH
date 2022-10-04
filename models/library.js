@@ -12,13 +12,19 @@ const LibrarySchema = new Schema(
             type: String,
             enum: ["Public", "School", "Special", "Research"]
         },
-        librarianAndStaff: String, // Head Librarian?
+        librarianAndStaff: String, 
         operatingDays: {
             type: [String],
             enum: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
         },
         openTime: String,
         closeTime: String,
+        reviews: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: "Review",
+            }
+        ]
     },
     {
         timestamps: true

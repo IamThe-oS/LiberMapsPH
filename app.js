@@ -3,6 +3,7 @@ const path = require("path");
 const ejsMate = require("ejs-mate");
 
 const librariesRoutes = require("./routes/libraries");
+const reviewsRoutes = require("./routes/reviews");
 const { default: mongoose } = require('mongoose');
 
 const app = express();
@@ -24,6 +25,8 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Routes
 app.use('/libraries', librariesRoutes);
+app.use('/libraries/:id/reviews', reviewsRoutes);
+
 
 app.get('/', (req, res) => {
     res.render("home");
