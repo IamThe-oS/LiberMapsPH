@@ -19,6 +19,9 @@ module.exports.createLibrary = async(req, res, next) => {
 
 module.exports.showLibrary = async(req, res) => {
     const library = await Library.findById(req.params.id)
+    .populate({
+        path: "reviews",
+    })
     const createdAt = DateTime.fromJSDate(library.createdAt).toFormat('MMMM dd, yyyy')
     res.render("libraries/show", { library, createdAt, })
 }

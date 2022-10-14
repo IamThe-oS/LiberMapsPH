@@ -9,6 +9,8 @@ const { default: mongoose } = require('mongoose');
 const Library = require('./models/library');
 const Review = require('./models/review')
 
+const { DateTime } = require("luxon");
+
 
 const app = express();
 
@@ -35,6 +37,7 @@ app.post('/libraries/:id/reviews', async(req, res) => {
     const library = await Library.findById(req.params.id)
     const review = new Review(req.body.review)
     // res.send(review)
+    review.reviewDate = DateTime.now().toLocaleString(DateTime.DATE_MED)
     library.reviews.push(review)
     await review.save();
     await library.save();
