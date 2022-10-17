@@ -134,8 +134,13 @@
           <div class="d-flex">
             <% for(let review of library.reviews) { %> 
               <div class="card text-bg-light text-start mx-auto" style="max-width: 15rem;">
-                <div class="card-header">
-                  By: Name
+                <div class="card-header d-flex">
+                  <span class="pt-1 fw-bold">By: Name</span>
+                  <span class="ms-auto">
+                    <form method="POST" action="/libraries/<%= library._id %>/reviews/<%= review._id %>?_method=DELETE">
+                      <button class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                  </span>
                 </div>
                 <div class="card-body">
                   <p class="starability-result" data-rating="<%= review.rating %>">

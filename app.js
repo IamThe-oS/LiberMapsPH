@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require("path");
 const ejsMate = require("ejs-mate");
+const methodOverride = require("method-override");
 
 const librariesRoutes = require("./routes/libraries");
 const reviewsRoutes = require("./routes/reviews");
@@ -27,6 +28,7 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
 
 // Routes
@@ -42,6 +44,10 @@ app.post('/libraries/:id/reviews', async(req, res) => {
     await review.save();
     await library.save();
     res.redirect(`/libraries/${library._id}`)
+})
+
+app.delete('libraries/:id/reviews/:reviewId', async(req, res) => {
+    const {id, reviewId } = req.params;
 })
 
 app.get('/', (req, res) => {
