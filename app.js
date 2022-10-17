@@ -46,9 +46,12 @@ app.post('/libraries/:id/reviews', async(req, res) => {
     res.redirect(`/libraries/${library._id}`)
 })
 
-app.delete('libraries/:id/reviews/:reviewId', async(req, res) => {
+app.delete('/libraries/:id/reviews/:reviewId', async(req, res) => {
     const {id, reviewId } = req.params;
-})
+    await Library.findByIdAndUpdate(id, { $pull: { reviews: reviewId }})
+    await Review.findByIdAndDelete(reviewId)
+    res.redirect(`/libraries/${id}`)
+})  
 
 app.get('/', (req, res) => {
     res.render("home");
