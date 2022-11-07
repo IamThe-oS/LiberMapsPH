@@ -7,12 +7,6 @@ const librariesRoutes = require("./routes/libraries");
 const reviewsRoutes = require("./routes/reviews");
 const { default: mongoose } = require('mongoose');
 
-const Library = require('./models/library');
-const Review = require('./models/review')
-
-const { DateTime } = require("luxon");
-
-
 const app = express();
 
 mongoose.connect("mongodb://localhost:27017/liberMapsPH")
@@ -33,26 +27,9 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Routes
 app.use('/libraries', librariesRoutes);
-// app.use('/libraries/:id/reviews', reviewsRoutes);
+app.use('/libraries/:id/reviews', reviewsRoutes);
 
-app.post('/libraries/:id/reviews', async(req, res) => {
-    const library = await Library.findById(req.params.id)
-    const review = new Review(req.body.review)
-    // res.send(review)
-    review.reviewDate = DateTime.now().toLocaleString(DateTime.DATE_MED)
-    library.reviews.push(review)
-    await review.save();
-    await library.save();
-    res.redirect(`/libraries/${library._id}`)
-})
-
-app.delete('/libraries/:id/reviews/:reviewId', async(req, res) => {
-    const {id, reviewId } = req.params;
-    await Library.findByIdAndUpdate(id, { $pull: { reviews: reviewId }})
-    await Review.findByIdAndDelete(reviewId)
-    res.redirect(`/libraries/${id}`)
-})  
-
+// Router
 app.get('/', (req, res) => {
     res.render("home");
 })
